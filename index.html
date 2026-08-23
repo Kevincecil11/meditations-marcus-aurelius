@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meditations — Marcus Aurelius</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',-apple-system,system-ui,sans-serif;background:#faf8f5;color:#2a2520;line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#d9d3cb;border-radius:3px}
+.pbar{position:fixed;top:0;left:0;height:3px;width:0;background:#8b4c2a;z-index:1001;pointer-events:none;transition:width 60ms linear}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(250,248,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #ebe7e1}
+.hdr-inner{max-width:760px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.hdr-brand{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-weight:600;white-space:nowrap}
+.hdr-right{display:flex;align-items:center;gap:8px}
+.search-box{position:relative}
+.search-box input{font-family:inherit;font-size:0.82rem;padding:7px 12px 7px 32px;width:180px;border:1px solid #d9d3cb;border-radius:7px;background:#fff;color:#2a2520;outline:none;transition:all 200ms ease}
+.search-box input:focus{width:220px;border-color:#8b4c2a;box-shadow:0 0 0 3px rgba(139,76,42,0.07)}
+.search-box .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#b0a89e;pointer-events:none;font-size:0.85rem}
+.hdr-btn{display:flex;align-items:center;justify-content:center;padding:7px 12px;border-radius:7px;border:1px solid #d9d3cb;background:#fff;color:#8b4c2a;cursor:pointer;font-family:inherit;font-size:0.78rem;font-weight:500;gap:4px;transition:all 150ms ease}
+.hdr-btn:hover{background:#f5f0ea;border-color:#8b4c2a}
+.pill-nav{position:sticky;top:49px;z-index:99;background:rgba(250,248,245,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #ebe7e1;overflow-x:auto;scrollbar-width:none}
+.pill-nav::-webkit-scrollbar{display:none}
+.pill-inner{max-width:760px;margin:0 auto;padding:0 24px;display:flex;gap:2px;min-width:max-content}
+.pill{padding:8px 14px;font-size:0.73rem;font-weight:500;color:#8a8079;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;transition:all 150ms ease;font-family:inherit}
+.pill:hover{color:#2a2520}
+.pill.on{color:#8b4c2a;border-bottom-color:#8b4c2a}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px 80px}
+.hero{text-align:center;padding:56px 0 44px}
+.hero-ey{font-size:0.66rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8b4c2a;margin-bottom:12px}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:700;line-height:1.08;margin-bottom:6px}
+.hero .au{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-style:italic;color:#8a8079;margin-bottom:20px}
+.hero .hd{font-size:0.9rem;color:#8a8079;max-width:500px;margin:0 auto 24px;line-height:1.7}
+.stats{display:flex;justify-content:center;font-size:0.76rem;font-weight:500;color:#b0a89e}
+.stats span{padding:0 12px}
+.stats span+span{border-left:1px solid #e0dbd4}
+.daily{max-width:520px;margin:0 auto 40px;padding:28px;background:#f3ede5;border-radius:10px;text-align:center}
+.daily-tag{font-size:0.64rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#8b4c2a;margin-bottom:10px}
+.daily .dq{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-style:italic;line-height:1.55;color:#2a2520;margin-bottom:8px}
+.daily .dr{font-size:0.72rem;font-weight:500;color:#b0a89e;margin-bottom:12px}
+.daily button{font-family:inherit;font-size:0.72rem;font-weight:500;color:#8b4c2a;background:rgba(139,76,42,0.06);border:1px solid rgba(139,76,42,0.15);border-radius:5px;padding:5px 14px;cursor:pointer}
+.daily button:hover{background:rgba(139,76,42,0.12)}
+.mode-bar{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:32px}
+.mode-btn{font-family:inherit;font-size:0.78rem;font-weight:500;padding:7px 18px;border-radius:20px;border:1px solid #d9d3cb;background:#fff;color:#8a8079;cursor:pointer;transition:all 150ms ease}
+.mode-btn:hover{border-color:#8b4c2a;color:#2a2520}
+.mode-btn.on{background:#8b4c2a;color:#fff;border-color:#8b4c2a}
+.toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;margin-bottom:4px;border-top:1px solid #ebe7e1}
+.toolbar .info{font-size:0.78rem;color:#8a8079;font-weight:500}
+.toolbar button{font-family:inherit;font-size:0.73rem;font-weight:500;color:#8b4c2a;background:none;border:1px solid rgba(139,76,42,0.2);border-radius:5px;padding:5px 14px;cursor:pointer}
+.toolbar button:hover{background:rgba(139,76,42,0.05)}
+.book-sec{padding:48px 0 32px}
+.book-sec+.book-sec{border-top:1px solid #ebe7e1}
+.bk-num{font-family:'Playfair Display',Georgia,serif;font-size:3rem;font-weight:700;line-height:1;color:#8b4c2a;opacity:0.18;margin-bottom:-4px}
+.bk-title{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:600;line-height:1.2;margin-bottom:8px}
+.bk-summary{font-size:0.88rem;color:#6a6058;line-height:1.7;max-width:600px;margin-bottom:8px;padding:16px 20px;background:#f8f4ef;border-radius:8px}
+.bk-summary strong{color:#2a2520;font-weight:600}
+.bk-themes{font-size:0.76rem;color:#8b4c2a;font-weight:500;margin-bottom:24px}
+.passage{padding:18px 0;position:relative}
+.passage+.passage{border-top:1px solid #f0ebe5}
+.passage.hide{display:none}
+.passage .pnum{font-size:0.68rem;font-weight:600;color:#c4bbb0;margin-bottom:6px}
+.passage .ptext{font-size:0.94rem;line-height:1.75;color:#3a3530;max-width:62ch}
+.passage.highlighted{padding-left:20px;border-left:3px solid rgba(139,76,42,0.2)}
+.passage.highlighted .ptext{font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;font-style:italic;line-height:1.6;color:#2a2520}
+.passage .pmeta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.passage .pacts{display:flex;align-items:center;gap:4px}
+.exp-btn{font-family:inherit;font-size:0.72rem;font-weight:500;color:#8b4c2a;background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:4px}
+.exp-btn:hover{background:rgba(139,76,42,0.06)}
+.exp-btn .arr{display:inline-block;transition:transform 0.25s ease;font-size:0.6rem;margin-left:3px}
+.exp-btn.open .arr{transform:rotate(180deg)}
+.hrt{background:none;border:none;cursor:pointer;padding:4px;color:#b0a89e;font-size:1rem;line-height:1;transition:color 150ms}
+.hrt:hover{color:#8b4c2a}
+.hrt.on{color:#8b4c2a}
+.expl{max-height:0;overflow:hidden;opacity:0;transition:max-height 0.4s ease,opacity 0.3s ease,margin 0.3s ease;margin-top:0}
+.expl.open{max-height:500px;opacity:1;margin-top:12px}
+.expl-in{background:#f3ede5;border-radius:8px;padding:14px 16px}
+.expl-tag{font-size:0.64rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#8b4c2a;margin-bottom:5px}
+.expl-txt{font-size:0.86rem;line-height:1.72;color:#4a4440}
+mark{background:rgba(200,170,80,0.3);color:inherit;border-radius:2px;padding:0 2px}
+.no-res{text-align:center;padding:48px 0;display:none}
+.no-res.show{display:block}
+.no-res h3{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:600;margin-bottom:4px}
+.no-res p{font-size:0.84rem;color:#8a8079}
+.overlay{position:fixed;inset:0;background:rgba(40,35,28,0.2);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.25s ease}
+.overlay.on{opacity:1;pointer-events:auto}
+.panel{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:92vw;background:#faf8f5;z-index:201;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(40,35,28,0.08)}
+.panel.on{transform:translateX(0)}
+.pnl-top{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #ebe7e1}
+.pnl-top h3{font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600}
+.pnl-x{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:none;color:#8a8079;cursor:pointer;font-size:1.2rem;border-radius:6px}
+.pnl-x:hover{background:#f0ebe5}
+.pnl-body{flex:1;overflow-y:auto;padding:14px 20px}
+.pnl-item{padding:14px 0}
+.pnl-item+.pnl-item{border-top:1px solid #f0ebe5}
+.pnl-item .pq{font-family:'Playfair Display',Georgia,serif;font-size:0.92rem;font-style:italic;line-height:1.5;color:#2a2520;margin-bottom:5px}
+.pnl-item .pf{font-size:0.7rem;font-weight:500;color:#b0a89e}
+.pnl-item .prm{font-size:0.7rem;font-weight:500;color:#8b4c2a;background:none;border:none;cursor:pointer;margin-top:4px}
+.pnl-item .prm:hover{text-decoration:underline}
+.pnl-empty{text-align:center;padding:40px 0;color:#8a8079;font-size:0.86rem;line-height:1.6}
+.btt{position:fixed;bottom:22px;right:22px;width:42px;height:42px;border-radius:50%;background:#2a2520;color:#faf8f5;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;opacity:0;pointer-events:none;transition:all 0.25s ease;transform:translateY(8px);z-index:50;box-shadow:0 2px 10px rgba(40,35,28,0.15)}
+.btt.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.btt:hover{transform:translateY(-2px)}
+.ft{max-width:760px;margin:0 auto;padding:36px 24px 48px;border-top:1px solid #ebe7e1;text-align:center}
+.ft .fq{font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-style:italic;color:#8a8079;line-height:1.5;max-width:440px;margin:0 auto 14px}
+.ft .fw{font-size:0.7rem;font-weight:500;color:#b0a89e}
+@media(max-width:640px){
+.hdr-inner{padding:10px 16px}
+.search-box input{width:120px;font-size:0.78rem}
+.search-box input:focus{width:160px}
+.pill-inner{padding:0 16px}
+.wrap{padding:0 16px 56px}
+.hero{padding:36px 0 32px}
+.hero h1{font-size:2.2rem}
+.book-sec{padding:36px 0 24px}
+.bk-num{font-size:2.2rem}
+.bk-title{font-size:1.3rem}
+.passage.highlighted .ptext{font-size:1.05rem}
+.panel{width:100%;max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<header class="hdr"><div class="hdr-inner">
+<div class="hdr-brand">Meditations</div>
+<div class="hdr-right">
+<div class="search-box"><span class="si">&#128269;</span><input type="text" id="search" placeholder="Search..." autocomplete="off"></div>
+<button class="hdr-btn" id="openSaved">&#9829; Saved (<span id="scount">0</span>)</button>
+</div>
+</div></header>
+<nav class="pill-nav"><div class="pill-inner" id="pillNav"></div></nav>
+<div class="wrap">
+<section class="hero">
+<div class="hero-ey">The Complete Interactive Guide</div>
+<h1>Meditations</h1>
+<p class="au">Marcus Aurelius (121 &ndash; 180 AD) &middot; George Long Translation</p>
+<p class="hd">A Roman Emperor's private journal on how to think clearly, act with virtue, and find peace in a chaotic world. The complete text of all 12 books, with key passages highlighted and explained in plain English.</p>
+<div class="stats"><span>12 Books</span><span>Full Text</span><span>36 Key Quotes Explained</span></div>
+</section>
+<div class="daily" id="daily"></div>
+<div class="mode-bar">
+<button class="mode-btn on" data-mode="full">Full Text</button>
+<button class="mode-btn" data-mode="highlights">Key Quotes Only</button>
+</div>
+<div class="toolbar"><span class="info" id="qcount"></span><button id="toggleAll">Show all explanations</button></div>
+<div id="content"></div>
+<div class="no-res" id="noRes"><h3>No matches found</h3><p>Try a different search term</p></div>
+</div>
+<footer class="ft">
+<p class="fq">"The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane."</p>
+<p class="fw">Marcus Aurelius, Meditations &middot; Public Domain (George Long, 1862)</p>
+</footer>
+<div class="overlay" id="overlay"></div>
+<div class="panel" id="panel">
+<div class="pnl-top"><h3>Saved Quotes</h3><button class="pnl-x" id="pnlX">&times;</button></div>
+<div class="pnl-body" id="pnlBody"></div>
+</div>
+<button class="btt" id="btt">&uarr;</button>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
