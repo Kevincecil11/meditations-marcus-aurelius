@@ -2,6 +2,22 @@ var saved=[];try{saved=JSON.parse(localStorage.getItem('ma-sv')||'[]')}catch(e){
 var allOpen=false;
 var mode='full';
 
+// DARK MODE
+var theme=localStorage.getItem('ma-theme')||'light';
+document.documentElement.setAttribute('data-theme',theme);
+updateThemeIcon();
+
+document.getElementById('themeToggle').addEventListener('click',function(){
+  theme=theme==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme',theme);
+  localStorage.setItem('ma-theme',theme);
+  updateThemeIcon();
+});
+
+function updateThemeIcon(){
+  document.getElementById('themeToggle').innerHTML=theme==='light'?'\u263E':'\u2600';
+}
+
 function allHighlighted(){
   var a=[];
   for(var i=0;i<BOOKS.length;i++){
@@ -77,6 +93,7 @@ function updatePassageCount(){
 
 function bind(){
   var content=document.getElementById('content');
+
   content.addEventListener('click',function(e){
     var t=e.target;
     while(t&&t!==content){
@@ -106,7 +123,6 @@ function bind(){
     this.textContent=allOpen?'Hide all explanations':'Show all explanations';
   });
 
-  // Mode toggle
   var modeBtns=document.querySelectorAll('.mode-btn');
   for(var m=0;m<modeBtns.length;m++){
     modeBtns[m].addEventListener('click',function(){
@@ -139,10 +155,11 @@ function applyMode(){
   } else {
     for(var j=0;j<passages.length;j++)passages[j].classList.remove('hide');
   }
-  document.querySelectorAll('.book-sec').forEach(function(s){
-    var vis=s.querySelectorAll('.passage:not(.hide)');
-    s.style.display=vis.length?'':'none';
-  });
+  var secs=document.querySelectorAll('.book-sec');
+  for(var s=0;s<secs.length;s++){
+    var vis=secs[s].querySelectorAll('.passage:not(.hide)');
+    secs[s].style.display=vis.length?'':'none';
+  }
   updatePassageCount();
 }
 
@@ -174,7 +191,8 @@ function doSearch(raw){
     secs[j2].style.display=v.length?'':'none';
   }
   document.getElementById('qcount').textContent=vis+' passages';
-  document.getElementById('noRes').classList.toggle('show',vis===0);
+  var nr=document.getElementById('noRes');
+  if(vis===0)nr.classList.add('show');else nr.classList.remove('show');
 }
 
 function openPanel(){
@@ -199,8 +217,9 @@ function renderPanel(){
     h+='<div class="pnl-item"><p class="pq">\u201C'+escH(short)+'\u201D</p><button class="prm" data-id="'+id+'">Remove</button></div>';
   }
   body.innerHTML=h;
-  body.querySelectorAll('.prm').forEach(function(b){
-    b.addEventListener('click',function(){
+  var rmBtns=body.querySelectorAll('.prm');
+  for(var k=0;k<rmBtns.length;k++){
+    rmBtns[k].addEventListener('click',function(){
       var rid=this.getAttribute('data-id');
       var idx=saved.indexOf(rid);if(idx!==-1)saved.splice(idx,1);
       saveSt();updCount();
@@ -208,7 +227,7 @@ function renderPanel(){
       if(mb){mb.classList.remove('on');mb.textContent='\u2661'}
       renderPanel();
     });
-  });
+  }
 }
 
 function setupScroll(){
