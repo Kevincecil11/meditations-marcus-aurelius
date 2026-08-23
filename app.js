@@ -1,22 +1,18 @@
-var saved=[];try{saved=JSON.parse(localStorage.getItem('ma-sv')||'[]')}catch(e){saved=[]}
-var allOpen=false;
-var mode='full';
-
-// DARK MODE
-var theme=localStorage.getItem('ma-theme')||'light';
-document.documentElement.setAttribute('data-theme',theme);
-updateThemeIcon();
-
-document.getElementById('themeToggle').addEventListener('click',function(){
+// Theme
+var theme=document.documentElement.getAttribute('data-theme')||'light';
+var toggleBtn=document.getElementById('themeToggle');
+function setThemeIcon(){toggleBtn.textContent=theme==='light'?'\u263E':'\u2600'}
+setThemeIcon();
+toggleBtn.addEventListener('click',function(){
   theme=theme==='light'?'dark':'light';
   document.documentElement.setAttribute('data-theme',theme);
   localStorage.setItem('ma-theme',theme);
-  updateThemeIcon();
+  setThemeIcon();
 });
 
-function updateThemeIcon(){
-  document.getElementById('themeToggle').innerHTML=theme==='light'?'\u263E':'\u2600';
-}
+var saved=[];try{saved=JSON.parse(localStorage.getItem('ma-sv')||'[]')}catch(e){saved=[]}
+var allOpen=false;
+var mode='full';
 
 function allHighlighted(){
   var a=[];
@@ -93,7 +89,6 @@ function updatePassageCount(){
 
 function bind(){
   var content=document.getElementById('content');
-
   content.addEventListener('click',function(e){
     var t=e.target;
     while(t&&t!==content){
@@ -191,8 +186,7 @@ function doSearch(raw){
     secs[j2].style.display=v.length?'':'none';
   }
   document.getElementById('qcount').textContent=vis+' passages';
-  var nr=document.getElementById('noRes');
-  if(vis===0)nr.classList.add('show');else nr.classList.remove('show');
+  document.getElementById('noRes').classList.toggle('show',vis===0);
 }
 
 function openPanel(){
