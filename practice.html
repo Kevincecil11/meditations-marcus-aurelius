@@ -19,7 +19,6 @@ html[data-theme="dark"]{--bg:#111111;--bg-card:#1a1a1a;--bg-surface:#1e1e1e;--te
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased;transition:background 0.25s ease,color 0.25s ease}
 a{color:inherit;text-decoration:none}
-
 .hdr{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);transition:background 0.25s ease}
 .hdr-inner{max-width:720px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
 .hdr-brand{font-family:'Lora',Georgia,serif;font-size:1.1rem;font-weight:600;color:var(--text);white-space:nowrap}
@@ -28,25 +27,17 @@ a{color:inherit;text-decoration:none}
 .hdr-btn:hover{background:var(--accent-bg);border-color:var(--accent)}
 .theme-toggle{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px solid var(--border);background:var(--bg-surface);color:var(--text-muted);cursor:pointer;font-size:1.15rem;transition:all 150ms}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
-
 .wrap{max-width:720px;margin:0 auto;padding:0 20px 80px}
-
-/* TABS */
 .tabs{display:flex;gap:4px;padding:16px 0;border-bottom:1px solid var(--border);margin-bottom:32px}
 .tab{font-family:inherit;font-size:0.82rem;font-weight:500;padding:8px 18px;border-radius:24px;border:1px solid var(--border);background:var(--bg-surface);color:var(--text-muted);cursor:pointer;transition:all 150ms}
 .tab:hover{border-color:var(--accent);color:var(--text)}
 .tab.on{background:var(--mode-active-bg);color:var(--mode-active-text);border-color:var(--mode-active-bg)}
-
-/* SECTIONS */
 .sec{display:none}
 .sec.active{display:block}
-
-/* TODAY */
 .today-header{text-align:center;padding:20px 0 32px}
 .today-ey{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .today-day{font-family:'Lora',Georgia,serif;font-size:2rem;font-weight:600;margin-bottom:4px}
 .today-sub{font-size:0.85rem;color:var(--text-muted)}
-
 .reading-card{background:var(--bg-card);border-radius:14px;padding:32px;margin-bottom:24px;transition:background 0.25s ease}
 .reading-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .reading-quote{font-family:'Lora',Georgia,serif;font-size:1.2rem;font-style:italic;line-height:1.65;color:var(--text);margin-bottom:10px}
@@ -54,26 +45,20 @@ a{color:inherit;text-decoration:none}
 .reading-section{margin-bottom:22px}
 .reading-section h4{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .reading-section p{font-size:0.95rem;line-height:1.8;color:var(--text-mid)}
-
 .action-card{background:var(--accent-bg);border:1px solid var(--accent);border-radius:12px;padding:20px 24px;margin-bottom:24px}
 .action-card h4{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .action-card p{font-size:0.95rem;line-height:1.75;color:var(--text)}
-
 .reflection-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:24px}
 .reflection-card h4{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .reflection-card textarea{width:100%;min-height:80px;font-family:inherit;font-size:0.92rem;line-height:1.7;color:var(--text);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;resize:vertical;outline:none;transition:border-color 150ms}
 .reflection-card textarea::placeholder{color:var(--text-light)}
 .reflection-card textarea:focus{border-color:var(--accent)}
-
 .done-btn{display:block;width:100%;padding:14px;border-radius:10px;border:none;background:var(--mode-active-bg);color:var(--mode-active-text);font-family:inherit;font-size:0.92rem;font-weight:600;cursor:pointer;transition:opacity 150ms;margin-bottom:16px}
 .done-btn:hover{opacity:0.9}
 .done-btn.completed{background:var(--done-bg);color:var(--done-text);border:1px solid var(--done-border);cursor:default}
-
 .nav-btns{display:flex;gap:8px;justify-content:space-between}
 .nav-btn{flex:1;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg-surface);color:var(--text-muted);font-family:inherit;font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 150ms;text-align:center}
 .nav-btn:hover{border-color:var(--accent);color:var(--accent)}
-
-/* CALENDAR */
 .cal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:32px}
 .cal-card{padding:16px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg-surface);text-align:center;cursor:pointer;transition:all 150ms}
 .cal-card:hover{border-color:var(--accent);background:var(--accent-bg)}
@@ -84,20 +69,16 @@ a{color:inherit;text-decoration:none}
 .cal-status{font-size:0.68rem;font-weight:500;color:var(--text-light)}
 .cal-card.done-card .cal-status{color:var(--done-text)}
 .cal-card.today-card .cal-status{color:var(--accent)}
-
 .progress-bar-wrap{margin-bottom:32px}
 .progress-label{display:flex;justify-content:space-between;font-size:0.78rem;font-weight:500;color:var(--text-muted);margin-bottom:6px}
 .progress-track{height:8px;background:var(--bg-card);border-radius:4px;overflow:hidden}
 .progress-fill{height:100%;background:var(--accent);border-radius:4px;transition:width 0.4s ease}
-
-/* TOOLKIT */
 .toolkit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:32px}
 .toolkit-card{padding:20px;border-radius:12px;border:1px solid var(--border);background:var(--bg-surface);cursor:pointer;transition:all 150ms}
 .toolkit-card:hover{border-color:var(--accent);background:var(--accent-bg)}
 .toolkit-icon{font-size:1.6rem;margin-bottom:8px}
 .toolkit-title{font-size:0.95rem;font-weight:600;margin-bottom:4px;color:var(--text)}
 .toolkit-desc{font-size:0.82rem;color:var(--text-muted);line-height:1.5}
-
 .toolkit-detail{display:none}
 .toolkit-detail.active{display:block}
 .toolkit-back{font-family:inherit;font-size:0.82rem;font-weight:500;color:var(--accent);background:none;border:none;cursor:pointer;padding:0;margin-bottom:20px}
@@ -108,30 +89,10 @@ a{color:inherit;text-decoration:none}
 .tk-passage .tkq{font-family:'Lora',Georgia,serif;font-size:1.05rem;font-style:italic;line-height:1.65;color:var(--text);margin-bottom:8px}
 .tk-passage .tks{font-size:0.75rem;font-weight:500;color:var(--text-light);margin-bottom:10px}
 .tk-passage .tka{font-size:0.9rem;line-height:1.75;color:var(--text-mid)}
-
 .ft{max-width:720px;margin:0 auto;padding:36px 20px 48px;border-top:1px solid var(--border);text-align:center}
 .ft p{font-size:0.75rem;font-weight:500;color:var(--text-light)}
-
-@media(max-width:768px){
-  body{font-size:16px}
-  .hdr-inner{padding:10px 16px}
-  .hdr-brand{font-size:1rem}
-  .hdr-btn{padding:7px 10px;font-size:0.75rem}
-  .hdr-btn .lbl{display:none}
-  .wrap{padding:0 16px 60px}
-  .tabs{gap:3px;flex-wrap:wrap}
-  .tab{padding:7px 14px;font-size:0.78rem}
-  .today-day{font-size:1.6rem}
-  .reading-card{padding:24px 20px}
-  .reading-quote{font-size:1.05rem}
-  .toolkit-grid{grid-template-columns:1fr}
-  .cal-grid{grid-template-columns:repeat(auto-fill,minmax(75px,1fr))}
-}
-@media(max-width:400px){
-  .tabs{flex-direction:column}
-  .tab{width:100%;text-align:center}
-  .nav-btns{flex-direction:column}
-}
+@media(max-width:768px){body{font-size:16px}.hdr-inner{padding:10px 16px}.hdr-brand{font-size:1rem}.hdr-btn{padding:7px 10px;font-size:0.75rem}.hdr-btn .lbl{display:none}.wrap{padding:0 16px 60px}.tabs{gap:3px;flex-wrap:wrap}.tab{padding:7px 14px;font-size:0.78rem}.today-day{font-size:1.6rem}.reading-card{padding:24px 20px}.reading-quote{font-size:1.05rem}.toolkit-grid{grid-template-columns:1fr}.cal-grid{grid-template-columns:repeat(auto-fill,minmax(75px,1fr))}}
+@media(max-width:400px){.tabs{flex-direction:column}.tab{width:100%;text-align:center}.nav-btns{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -142,14 +103,12 @@ a{color:inherit;text-decoration:none}
 <button class="theme-toggle" id="themeToggle" title="Toggle dark mode"></button>
 </div>
 </div></header>
-
 <div class="wrap">
 <div class="tabs">
 <button class="tab on" data-tab="today">Today's Reading</button>
 <button class="tab" data-tab="calendar">30-Day Calendar</button>
 <button class="tab" data-tab="toolkit">Emergency Toolkit</button>
 </div>
-
 <div class="sec active" id="sec-today">
 <div class="today-header">
 <div class="today-ey">Morning Practice</div>
@@ -158,7 +117,6 @@ a{color:inherit;text-decoration:none}
 </div>
 <div id="todayContent"></div>
 </div>
-
 <div class="sec" id="sec-calendar">
 <div class="today-header">
 <div class="today-ey">Your Progress</div>
@@ -171,7 +129,6 @@ a{color:inherit;text-decoration:none}
 </div>
 <div class="cal-grid" id="calGrid"></div>
 </div>
-
 <div class="sec" id="sec-toolkit">
 <div class="today-header">
 <div class="today-ey">When You Need It</div>
@@ -182,136 +139,71 @@ a{color:inherit;text-decoration:none}
 <div class="toolkit-detail" id="tkDetail"></div>
 </div>
 </div>
-
 <footer class="ft"><p>Based on Meditations by Marcus Aurelius (George Long Translation, 1862)</p></footer>
-
 <script>
-// THEME
 var theme=document.documentElement.getAttribute('data-theme')||'light';
 var tBtn=document.getElementById('themeToggle');
 function setTI(){tBtn.textContent=theme==='light'?'\u263E':'\u2600'}
 setTI();
 tBtn.addEventListener('click',function(){theme=theme==='light'?'dark':'light';document.documentElement.setAttribute('data-theme',theme);localStorage.setItem('ma-theme',theme);setTI()});
-
-// DATA
 var DAILY=[
-{day:1,quote:'Begin each day by telling yourself: today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness, all of them due to the offenders\' ignorance of what is good or evil.',src:'Book 2, Passage 1',explain:'People will frustrate you today. That is guaranteed. But if you expect it in advance, it loses its power to surprise and destabilize you. Their behavior comes from ignorance, not malice. Knowing this lets you respond with patience instead of rage.',apply:'Before you start your day, name 3 people or situations that might frustrate you. Decide right now how you will respond calmly. When the moment comes, you will already have a plan.',reflect:'Who tested my patience today? Did I respond from my plan, or did I react?'},
-{day:2,quote:'In the morning when thou risest unwillingly, let this thought be present: I am rising to the work of a human being. Why then am I dissatisfied if I am going to do the things for which I exist and for which I was brought into the world?',src:'Book 5, Passage 1',explain:'You were not born to be comfortable. You were born to contribute. When the alarm goes off and every part of you wants to stay in bed, remember that the work you do IS the point of being alive.',apply:'When your alarm goes off tomorrow, say out loud before your feet touch the floor: "I am rising to do the work of a human being." Do not check your phone first.',reflect:'Did I get up with purpose today, or did I drift into the day? What did I do that felt like real human work?'},
-{day:3,quote:'You have power over your mind, not outside events. Realize this, and you will find strength.',src:'Book 6, Passage 2',explain:'You cannot control what happens to you. You can always control how you respond. The weather, other people, the economy: none of that is up to you. Your thoughts and reactions? Those are yours.',apply:'List your current worries on paper. Circle only the ones you can actually control. For everything else, write "not mine" next to it. Focus your energy only on what is circled.',reflect:'Where did I waste energy on things outside my control today? Where did I direct it well?'},
-{day:4,quote:'The impediment to action advances action. What stands in the way becomes the way.',src:'Book 5, Passage 4',explain:'Every problem you face is not blocking your path; it IS your path. Got rejected? That teaches you to pitch better. Lost money? That teaches risk management. The obstacle is the raw material of your growth.',apply:'Name one problem you have been avoiding. Write down one specific thing it is teaching you or one skill it is forcing you to develop. Work on it for 20 minutes today.',reflect:'What obstacle did I face today? What did it teach me that ease never could?'},
-{day:5,quote:'Choose not to be harmed, and you will not feel harmed. Do not feel harmed, and you have not been.',src:'Book 4, Passage 2',explain:'Harm is a choice you make internally. If someone tries to embarrass you but you genuinely do not care, were you actually harmed? No. Your reaction is what makes something an injury or a non-event.',apply:'If someone says something annoying or hurtful today, pause for 3 full seconds before responding. In that pause, consciously choose: "This does not harm me."',reflect:'Was there a moment today where I chose not to be harmed? How did that change the outcome?'},
-{day:6,quote:'The soul becomes dyed with the colour of its thoughts.',src:'Book 5, Passage 3',explain:'Whatever you think about all day is what you become. If you run negative, anxious thoughts on repeat, your entire personality takes on that shade. Think with clarity and gratitude, and your character reflects it.',apply:'Set 3 alarms on your phone for random times today. When each goes off, notice what you were just thinking. If it was negative, consciously replace it with something useful.',reflect:'What was the dominant color of my thoughts today? Was it the shade I want to become?'},
-{day:7,quote:'Waste no more time arguing about what a good man should be. Be one.',src:'Book 10, Passage 1',explain:'Stop debating, reading about, or planning to be better. Just act. Every minute theorizing about virtue is a minute you could have spent practicing it.',apply:'Do one genuinely kind thing today without telling anyone about it. Do not post it, do not mention it. Let it be completely invisible.',reflect:'Did I practice goodness today, or just think about it?'},
-{day:8,quote:'Very little is needed to make a happy life; it is all within yourself, in your way of thinking.',src:'Book 7, Passage 3',explain:'Happiness is not about getting more. It is about needing less. And needing less is just a thought pattern you can choose. The richest person with a miserable mindset is poorer than someone content with very little.',apply:'Write down 5 things you already have that make your life good. Not goals, not wishes: things you have RIGHT NOW. Carry the list with you and read it if your mood drops.',reflect:'Did I chase something external for happiness today, or did I find it in what I already have?'},
-{day:9,quote:'The best revenge is not to be like your enemy.',src:'Book 6, Passage 1',explain:'When someone wrongs you, becoming petty or cruel in return means they have won. They turned you into them. The most powerful response is staying exactly who you are.',apply:'Think of someone who wronged you recently. Instead of planning revenge, do the exact opposite of what they did, but to someone else. Give what they took.',reflect:'Did I let anyone pull me down to their level today? Did I stay myself?'},
-{day:10,quote:'If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it; and this you have the power to revoke at any moment.',src:'Book 8, Passage 1',explain:'Nothing outside you has the power to hurt you emotionally on its own. It is your interpretation that causes the pain. Since you wrote the story, you can rewrite it.',apply:'Name one thing stressing you right now. Write the story you are telling yourself about it. Now write a completely different interpretation, one that is equally true but more useful.',reflect:'Did I catch myself adding a painful story to a neutral event today?'},
-{day:11,quote:'Think of yourself as dead. You have lived your life. Now take what\'s left and live it properly.',src:'Book 7, Passage 1',explain:'Imagine you already died and everything from this point forward is bonus time. This kills procrastination and pettiness in one shot. You got a second chance. Do not waste it.',apply:'Pretend you died yesterday and today is bonus. What is the ONE thing you would do today if this were truly extra time? Do that thing.',reflect:'If today was truly bonus time, did I spend it well?'},
-{day:12,quote:'How much more grievous are the consequences of anger than the causes of it.',src:'Book 6, Passage 3',explain:'The last time you got angry, the anger probably cost you more than the thing that triggered it. You said something you regret, stressed your body, wasted hours fuming. The trigger was small; your anger made it enormous.',apply:'If you feel anger rising today, before acting on it ask yourself: "What will this anger cost me?" Wait 60 seconds. Usually the urge passes.',reflect:'Did anger visit me today? What did it almost cost me? Did I let it pass?'},
-{day:13,quote:'Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.',src:'Book 2, Passage 2',explain:'You could die today. Not as a scary thought, but as a priority filter. If this were your last day, would you hold that grudge? Would you postpone telling someone you love them?',apply:'Send a message to someone who matters to you. Tell them specifically why they matter. Do not wait for a "better time."',reflect:'If today had been my last, would I be at peace with how I spent it?'},
-{day:14,quote:'Dwell on the beauty of life. Watch the stars, and see yourself running with them.',src:'Book 7, Passage 2',explain:'Do not get so lost in problems that you forget to notice the actual world around you. You are part of a cosmic show billions of years in the making. That perspective makes daily anxieties feel appropriately small.',apply:'Spend 10 minutes outside today with no phone. Just observe: sky, trees, sounds, people. Let yourself feel small in a good way.',reflect:'Did I notice beauty today? Where did I find it?'},
-{day:15,quote:'Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.',src:'Book 8, Passage 3',explain:'Every piece of information you receive has been filtered through biases. The news, your friend\'s advice, your own interpretation: all opinions. Treating any of them as absolute truth is where mistakes begin.',apply:'Catch yourself stating an opinion as fact at least once today. Rephrase it with "I think" or "my view is" and notice how it changes the conversation.',reflect:'Did I mistake any opinion for truth today? Whose perspective did I accept without questioning?'},
-{day:16,quote:'When you are offended at any man\'s fault, immediately turn to yourself and reflect in what manner you yourself have erred.',src:'Book 9, Passage 2',explain:'Before judging someone, check yourself. You have probably done the same thing in a different context. It is much harder to stay angry at a flaw when you see it living inside yourself.',apply:'Before judging anyone today, pause and find one way you have done the same thing, or something similar. Let that humility replace the judgment.',reflect:'Who did I judge today? Was I being fair, or was I seeing my own flaws in someone else?'},
-{day:17,quote:'Accept the things to which fate binds you, and love the people with whom fate brings you together, and do so with all your heart.',src:'Book 6, Passage 4',explain:'Stop fighting your circumstances. You were dealt this hand. Instead of wishing for different cards, play the ones you have with everything you have got.',apply:'Name one thing about your current life you have been resisting. Fully accept it today. Not with resignation, but with commitment: "This is my situation. I will make the most of it."',reflect:'What did I resist today? What did I accept? Which felt better?'},
-{day:18,quote:'Do not act as if thou wert going to live ten thousand years. Death hangs over thee. While thou livest, while it is in thy power, be good.',src:'Book 2, Passage 3',explain:'Stop planning to be good "someday." The time to act with virtue is right now, this conversation, this decision, this moment. Your power is always and only in the present.',apply:'Identify one thing you have been meaning to do for weeks. Take the first step today, however small. Five minutes counts.',reflect:'What did I stop postponing today? How did it feel to finally act?'},
-{day:19,quote:'Be like the cliff against which the waves continually break; but it stands firm, and tames the fury of the water around it.',src:'Book 8, Passage 6',explain:'When life hits you repeatedly, do not fight every wave. Just stand. The cliff does not argue with the ocean. It exists with such firmness that the chaos exhausts itself.',apply:'When something goes wrong today, do not react for 10 full seconds. Just breathe and be the cliff. Notice how different the situation feels after stillness.',reflect:'Did chaos come at me today? Did I react, or did I stand firm?'},
-{day:20,quote:'When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.',src:'Book 7, Passage 5',explain:'Before you check your phone or think about your problems, recognize that being alive at all is extraordinary. Starting the day from gratitude instead of anxiety changes everything downstream.',apply:'Before getting out of bed tomorrow, take 3 slow breaths and say: "Being alive is the privilege. Everything else is extra." Do this before touching your phone.',reflect:'Did I start from gratitude today or from anxiety? How did it shape the rest of my day?'},
-{day:21,quote:'Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions, not outside.',src:'Book 8, Passage 4',explain:'Marcus corrects himself: he did not escape anxiety as if it were chasing him. He discarded it, because it was never external. Anxiety is something you carry by choice. What you carry, you can put down.',apply:'If you feel anxious today, say: "I am choosing to carry this. I can also put it down." Then consciously relax your shoulders, unclench your jaw, and take one breath.',reflect:'Did I carry unnecessary anxiety today? Was I able to put any of it down?'},
-{day:22,quote:'He who does wrong does wrong against himself. He who acts unjustly acts unjustly to himself, because he makes himself bad.',src:'Book 9, Passage 1',explain:'When someone cheats or acts cruelly, the primary victim is themselves. They corrode their own character. They live inside a mind that chose dishonesty. You get to walk away. They do not.',apply:'Think of someone who hurt you. Instead of anger, try this: imagine living inside their mind 24/7. Feel compassion for the person who has to be them.',reflect:'Did I see any wrongdoer as a victim of their own choices today? Did compassion replace anger?'},
-{day:23,quote:'It is not death that a man should fear, but he should fear never beginning to live.',src:'Book 12, Passage 2',explain:'Death is not the tragedy. The tragedy is reaching the end and realizing you never started. You played it safe, waited for the right moment, followed someone else\'s script.',apply:'What is one thing you would do if you were not afraid? Name it. Take the smallest possible step toward it today. Send one email, make one call, write one paragraph.',reflect:'What fear held me back today? Did I take even one small step through it?'},
-{day:24,quote:'Do not waste the remainder of thy life in thoughts about others.',src:'Book 3, Passage 4',explain:'Every minute spent thinking about what someone else is doing, gossiping, or comparing yourself is a minute stolen from your own work and growth. Your attention is your most valuable resource.',apply:'Block all social media for 4 hours today. Use that time on your own work. Notice how much you get done and how different your mind feels.',reflect:'How much of my attention went to others today versus my own work? What did I create?'},
-{day:25,quote:'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.',src:'Book 12, Passage 5',explain:'Just because everyone does something does not make it right. Consensus is not truth. If the majority is numbing themselves and avoiding hard truths, joining them does not make you sane.',apply:'Identify one belief or habit you hold just because everyone around you does. Question it honestly today: is this actually true for me, or am I following the crowd?',reflect:'Where am I following the crowd instead of thinking for myself? What would I do differently?'},
-{day:26,quote:'Never value anything as profitable to thyself which shall compel thee to break thy promise, to lose thy self-respect, to hate any man, to suspect, to curse, to act the hypocrite, to desire anything that needs walls or curtains.',src:'Book 3, Passage 3',explain:'If getting something requires compromising who you are, it is not profitable. If you have to hide what you are doing, that is your signal. No deal, no amount of money, no shortcut is worth your integrity.',apply:'If any opportunity today requires even a small compromise of your integrity, walk away. No exceptions. Notice how powerful it feels to say no.',reflect:'Was my integrity tested today? Did I protect it?'},
-{day:27,quote:'Persuade me or prove to me that I am wrong in thought or deed, and I will gladly change. For I seek the truth, which has never yet harmed anyone.',src:'Book 11, Passage 3',explain:'Most people defend their opinions like territory. Marcus says: show me I am wrong and I will thank you. Truth never harms. Only stubbornly clinging to comfortable lies does.',apply:'In your next disagreement, genuinely try to understand the other person\'s point first. Ask: "What if they are right and I am wrong?" Hold that possibility open for 30 seconds.',reflect:'Did I defend an opinion today, or did I seek truth? Was I open to being wrong?'},
-{day:28,quote:'Loss is nothing else but change, and change is Nature\'s delight.',src:'Book 6, Passage 6',explain:'Everything you have lost was just a change of form. A relationship ending, money spent, a phase of life closing: these are not losses. They are transformations. Nature thrives on change, and so can you.',apply:'Something you recently lost (time, money, a relationship, a routine)? Find one concrete way it created space for something new. Write it down.',reflect:'What changed in my life recently that I was resisting? Can I see it as Nature\'s work now?'},
-{day:29,quote:'Receive without conceit, release without struggle.',src:'Book 7, Passage 7',explain:'When good things come, enjoy them without bragging or believing you deserved them more than others. When they leave, let them go without clinging. This is the art of holding life loosely.',apply:'If something good happens today, enjoy it quietly without telling anyone. If something bad happens, let it pass without dramatizing it. Practice holding both loosely.',reflect:'Did I cling to anything today, good or bad? What would it feel like to hold everything more loosely?'},
-{day:30,quote:'Pass then through this little space of time conformably to nature, and end thy journey in content, just as an olive falls off when it is ripe, blessing nature who produced it, and thanking the tree on which it grew.',src:'Book 12, Passage 6',explain:'This is how Marcus envisions a good life and a good death: naturally, gently, with gratitude. Like a ripe olive falling from its tree. No clinging, no resisting. Just readiness and thanks.',apply:'Live today as if it were your last, but calmly. No panic, no drama. Just presence, gratitude, and good work. At the end of the day, say: "Thank you for the tree."',reflect:'If this were my final day, what would I want to have felt? Did I feel that today?'}
+{day:1,quote:'Begin each day by telling yourself: today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness, all of them due to the offenders\' ignorance of what is good or evil.',src:'Book 2, Passage 1',explain:'People will frustrate you today. That is guaranteed. But if you expect it in advance, it loses its power to surprise and destabilize you. Their behavior comes from ignorance, not malice.',apply:'Before you start your day, name 3 people or situations that might frustrate you. Decide right now how you will respond calmly.',reflect:'Who tested my patience today? Did I respond from my plan, or did I react?'},
+{day:2,quote:'In the morning when thou risest unwillingly, let this thought be present: I am rising to the work of a human being.',src:'Book 5, Passage 1',explain:'You were not born to be comfortable. You were born to contribute. The work you do IS the point of being alive.',apply:'When your alarm goes off, say out loud: "I am rising to do the work of a human being." Do not check your phone first.',reflect:'Did I get up with purpose today, or did I drift into the day?'},
+{day:3,quote:'You have power over your mind, not outside events. Realize this, and you will find strength.',src:'Book 6, Passage 2',explain:'You cannot control what happens to you. You can always control how you respond.',apply:'List your current worries. Circle only the ones you can actually control. For everything else, write "not mine" next to it.',reflect:'Where did I waste energy on things outside my control today?'},
+{day:4,quote:'The impediment to action advances action. What stands in the way becomes the way.',src:'Book 5, Passage 4',explain:'Every problem you face is not blocking your path; it IS your path. The obstacle is the raw material of your growth.',apply:'Name one problem you have been avoiding. Write down one specific thing it is teaching you. Work on it for 20 minutes today.',reflect:'What obstacle did I face today? What did it teach me?'},
+{day:5,quote:'Choose not to be harmed, and you will not feel harmed. Do not feel harmed, and you have not been.',src:'Book 4, Passage 2',explain:'Harm is a choice you make internally. Your reaction is what makes something an injury or a non-event.',apply:'If someone says something hurtful today, pause for 3 seconds. Consciously choose: "This does not harm me."',reflect:'Was there a moment today where I chose not to be harmed?'},
+{day:6,quote:'The soul becomes dyed with the colour of its thoughts.',src:'Book 5, Passage 3',explain:'Whatever you think about all day is what you become.',apply:'Set 3 alarms for random times today. When each goes off, notice what you were thinking. If negative, replace it.',reflect:'What was the dominant color of my thoughts today?'},
+{day:7,quote:'Waste no more time arguing about what a good man should be. Be one.',src:'Book 10, Passage 1',explain:'Stop debating or planning to be better. Just act.',apply:'Do one genuinely kind thing today without telling anyone about it.',reflect:'Did I practice goodness today, or just think about it?'},
+{day:8,quote:'Very little is needed to make a happy life; it is all within yourself, in your way of thinking.',src:'Book 7, Passage 3',explain:'Happiness is not about getting more. It is about needing less.',apply:'Write down 5 things you already have that make your life good. Carry the list and read it if your mood drops.',reflect:'Did I chase something external for happiness today, or did I find it in what I already have?'},
+{day:9,quote:'The best revenge is not to be like your enemy.',src:'Book 6, Passage 1',explain:'Becoming petty or cruel in return means they have won. They turned you into them.',apply:'Think of someone who wronged you. Instead of revenge, do the exact opposite of what they did, but to someone else.',reflect:'Did I let anyone pull me down to their level today?'},
+{day:10,quote:'If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it; and this you have the power to revoke at any moment.',src:'Book 8, Passage 1',explain:'Nothing outside you has the power to hurt you emotionally on its own. It is your interpretation that causes the pain.',apply:'Name one thing stressing you. Write the story you are telling yourself about it. Now write a completely different interpretation.',reflect:'Did I catch myself adding a painful story to a neutral event today?'},
+{day:11,quote:'Think of yourself as dead. You have lived your life. Now take what\'s left and live it properly.',src:'Book 7, Passage 1',explain:'Imagine you already died and everything from this point forward is bonus time.',apply:'Pretend you died yesterday. What is the ONE thing you would do today if this were truly extra time? Do that thing.',reflect:'If today was truly bonus time, did I spend it well?'},
+{day:12,quote:'How much more grievous are the consequences of anger than the causes of it.',src:'Book 6, Passage 3',explain:'The anger probably cost you more than the thing that triggered it.',apply:'If you feel anger rising today, ask: "What will this anger cost me?" Wait 60 seconds.',reflect:'Did anger visit me today? What did it almost cost me?'},
+{day:13,quote:'Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.',src:'Book 2, Passage 2',explain:'You could die today. Not as a scary thought, but as a priority filter.',apply:'Send a message to someone who matters to you. Tell them specifically why they matter.',reflect:'If today had been my last, would I be at peace with how I spent it?'},
+{day:14,quote:'Dwell on the beauty of life. Watch the stars, and see yourself running with them.',src:'Book 7, Passage 2',explain:'Do not get so lost in problems that you forget to notice the actual world around you.',apply:'Spend 10 minutes outside today with no phone. Just observe.',reflect:'Did I notice beauty today? Where did I find it?'},
+{day:15,quote:'Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth.',src:'Book 8, Passage 3',explain:'Every piece of information you receive has been filtered through biases.',apply:'Catch yourself stating an opinion as fact at least once today. Rephrase it with "I think" or "my view is."',reflect:'Did I mistake any opinion for truth today?'},
+{day:16,quote:'When you are offended at any man\'s fault, immediately turn to yourself and reflect in what manner you yourself have erred.',src:'Book 9, Passage 2',explain:'Before judging someone, check yourself. You have probably done the same thing.',apply:'Before judging anyone today, find one way you have done the same thing.',reflect:'Who did I judge today? Was I being fair?'},
+{day:17,quote:'Accept the things to which fate binds you, and love the people with whom fate brings you together, and do so with all your heart.',src:'Book 6, Passage 4',explain:'Stop fighting your circumstances. Play the cards you have with everything you have got.',apply:'Name one thing about your current life you have been resisting. Fully accept it today.',reflect:'What did I resist today? What did I accept? Which felt better?'},
+{day:18,quote:'Do not act as if thou wert going to live ten thousand years. Death hangs over thee. While thou livest, while it is in thy power, be good.',src:'Book 2, Passage 3',explain:'Stop planning to be good "someday." Your power is always and only in the present.',apply:'Identify one thing you have been meaning to do for weeks. Take the first step today.',reflect:'What did I stop postponing today?'},
+{day:19,quote:'Be like the cliff against which the waves continually break; but it stands firm, and tames the fury of the water around it.',src:'Book 8, Passage 6',explain:'When life hits you repeatedly, do not fight every wave. Just stand.',apply:'When something goes wrong today, do not react for 10 full seconds. Just breathe and be the cliff.',reflect:'Did chaos come at me today? Did I react, or did I stand firm?'},
+{day:20,quote:'When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.',src:'Book 7, Passage 5',explain:'Starting the day from gratitude instead of anxiety changes everything downstream.',apply:'Before getting out of bed, take 3 slow breaths and say: "Being alive is the privilege. Everything else is extra."',reflect:'Did I start from gratitude today or from anxiety?'},
+{day:21,quote:'Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions, not outside.',src:'Book 8, Passage 4',explain:'Anxiety is something you carry by choice. What you carry, you can put down.',apply:'If you feel anxious, say: "I am choosing to carry this. I can also put it down." Relax your shoulders, unclench your jaw.',reflect:'Did I carry unnecessary anxiety today? Was I able to put any of it down?'},
+{day:22,quote:'He who does wrong does wrong against himself. He who acts unjustly acts unjustly to himself, because he makes himself bad.',src:'Book 9, Passage 1',explain:'When someone cheats or acts cruelly, the primary victim is themselves.',apply:'Think of someone who hurt you. Imagine living inside their mind 24/7. Feel compassion for the person who has to be them.',reflect:'Did I see any wrongdoer as a victim of their own choices today?'},
+{day:23,quote:'It is not death that a man should fear, but he should fear never beginning to live.',src:'Book 12, Passage 2',explain:'Death is not the tragedy. The tragedy is reaching the end and realizing you never started.',apply:'What is one thing you would do if you were not afraid? Take the smallest possible step toward it today.',reflect:'What fear held me back today? Did I take even one small step through it?'},
+{day:24,quote:'Do not waste the remainder of thy life in thoughts about others.',src:'Book 3, Passage 4',explain:'Every minute spent comparing yourself to others is stolen from your own work.',apply:'Block all social media for 4 hours today. Use that time on your own work.',reflect:'How much of my attention went to others today versus my own work?'},
+{day:25,quote:'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.',src:'Book 12, Passage 5',explain:'Just because everyone does something does not make it right.',apply:'Identify one belief or habit you hold just because everyone around you does. Question it honestly today.',reflect:'Where am I following the crowd instead of thinking for myself?'},
+{day:26,quote:'Never value anything as profitable to thyself which shall compel thee to break thy promise, to lose thy self-respect, to hate any man, to suspect, to curse, to act the hypocrite, to desire anything that needs walls or curtains.',src:'Book 3, Passage 3',explain:'If getting something requires compromising who you are, it is not profitable.',apply:'If any opportunity today requires even a small compromise of your integrity, walk away.',reflect:'Was my integrity tested today? Did I protect it?'},
+{day:27,quote:'Persuade me or prove to me that I am wrong in thought or deed, and I will gladly change. For I seek the truth, which has never yet harmed anyone.',src:'Book 11, Passage 3',explain:'Most people defend their opinions like territory. Marcus says: show me I am wrong and I will thank you.',apply:'In your next disagreement, ask: "What if they are right and I am wrong?" Hold that possibility open for 30 seconds.',reflect:'Did I defend an opinion today, or did I seek truth?'},
+{day:28,quote:'Loss is nothing else but change, and change is Nature\'s delight.',src:'Book 6, Passage 6',explain:'Everything you have lost was just a change of form. Nature thrives on change.',apply:'Something you recently lost? Find one concrete way it created space for something new.',reflect:'What changed in my life recently that I was resisting?'},
+{day:29,quote:'Receive without conceit, release without struggle.',src:'Book 7, Passage 7',explain:'When good things come, enjoy them without bragging. When they leave, let them go without clinging.',apply:'If something good happens today, enjoy it quietly. If something bad happens, let it pass without dramatizing it.',reflect:'Did I cling to anything today, good or bad?'},
+{day:30,quote:'Pass then through this little space of time conformably to nature, and end thy journey in content, just as an olive falls off when it is ripe, blessing nature who produced it, and thanking the tree on which it grew.',src:'Book 12, Passage 6',explain:'This is how Marcus envisions a good death: naturally, gently, with gratitude.',apply:'Live today as if it were your last, but calmly. At the end of the day, say: "Thank you for the tree."',reflect:'If this were my final day, what would I want to have felt? Did I feel that today?'}
 ];
-
 var TOOLKIT=[
-{id:'angry',icon:'\uD83D\uDD25',title:'I Am Angry',desc:'When rage is clouding your judgment.',passages:[
-{q:'How much more grievous are the consequences of anger than the causes of it.',s:'Book 6',a:'Your anger will cost more than whatever triggered it. Before you act, ask: "What will this anger cost me in 10 minutes? 10 days? 10 years?"'},
-{q:'The best revenge is not to be like your enemy.',s:'Book 6',a:'They acted from their worst self. If you retaliate, you become them. Stay who you are. That asymmetry is the real victory.'},
-{q:'When you are offended at any man\'s fault, immediately turn to yourself and reflect in what manner you yourself have erred.',s:'Book 9',a:'You have done similar things. Maybe not identical, but similar. Finding your own version of their flaw dissolves the self-righteousness that fuels anger.'},
-{q:'Begin each day by telling yourself: today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness.',s:'Book 2',a:'You should have expected this. Difficult people are not a bug in life; they are a feature. The anger comes from surprise. Remove the surprise, remove the anger.'}
-]},
-{id:'procrastinating',icon:'\u23F3',title:'I Am Procrastinating',desc:'When resistance is winning.',passages:[
-{q:'In the morning when thou risest unwillingly, let this thought be present: I am rising to the work of a human being.',s:'Book 5',a:'You were not born for comfort. You were born to contribute. The resistance you feel is not a signal to stop; it is a signal that the work matters.'},
-{q:'Waste no more time arguing about what a good man should be. Be one.',s:'Book 10',a:'You are procrastinating because planning feels productive. It is not. Close the planning, open the work. Five minutes of doing beats five hours of thinking about doing.'},
-{q:'Do not act as if thou wert going to live ten thousand years.',s:'Book 2',a:'You do not have infinite time. The thing you are putting off? You might never get another chance. Start now, start badly, but start.'},
-{q:'The impediment to action advances action. What stands in the way becomes the way.',s:'Book 5',a:'The very thing you are avoiding is the thing that will grow you the most. The resistance IS the workout.'}
-]},
-{id:'anxious',icon:'\uD83C\uDF00',title:'I Am Anxious',desc:'When your mind will not stop spiraling.',passages:[
-{q:'Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions, not outside.',s:'Book 8',a:'Anxiety is not chasing you. You are carrying it. And what you carry, you can put down. Right now: unclench your jaw, drop your shoulders, take one slow breath.'},
-{q:'If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.',s:'Book 8',a:'The situation is neutral. Your story about it is what hurts. Can you write a different story? One that is equally true but does not trigger panic?'},
-{q:'It is in thy power whenever thou shalt choose to retire into thyself.',s:'Book 2',a:'You do not need to escape your life. Close your eyes for 30 seconds. The retreat is already built inside you. Nobody can follow you there.'},
-{q:'Of human life the time is a point, and the substance is in a flux. Everything which belongs to the body is a stream, and what belongs to the soul is a dream and vapour.',s:'Book 2',a:'Zoom out. Way out. Your anxious moment is a speck on a speck on a speck. Not meaningless, but appropriately small. This too will be swept downstream.'}
-]},
-{id:'wronged',icon:'\u2694\uFE0F',title:'Someone Wronged Me',desc:'When you have been treated unfairly.',passages:[
-{q:'He who does wrong does wrong against himself. He who acts unjustly acts unjustly to himself, because he makes himself bad.',s:'Book 9',a:'They are already paying the price. They have to live inside a mind that chose dishonesty or cruelty. You get to walk away. Revenge is redundant.'},
-{q:'Choose not to be harmed, and you will not feel harmed.',s:'Book 4',a:'They did what they did. The question is: will you let it define your next hour, day, week? Their action is over. Your suffering is self-imposed from this point on.'},
-{q:'It is peculiar to man to love even those who do wrong. They are kinsmen, and they do wrong through ignorance and unintentionally.',s:'Book 11',a:'They did not know better. That is not an excuse; it is an explanation. Understanding why someone acted badly makes forgiveness rational, not weak.'},
-{q:'Never value anything as profitable which shall compel thee to hate any man.',s:'Book 3',a:'If holding this grudge costs you peace, it is too expensive. No matter what they took from you, do not let them also take your calm.'}
-]},
-{id:'approval',icon:'\uD83C\uDFAD',title:'I Am Chasing Approval',desc:'When you need others to validate you.',passages:[
-{q:'Everything which is in any way beautiful is beautiful in itself, and terminates in itself, not having praise as part of itself.',s:'Book 4',a:'Good work does not need applause. If you need validation to feel something has value, you are not evaluating the work; you are evaluating your need for approval. Do the work. Let it speak.'},
-{q:'How much trouble he avoids who does not look to see what his neighbour says or does or thinks.',s:'Book 4',a:'Every second spent monitoring what others think of you is a second stolen from actual work. The irony: the less you care what they think, the more impressive you become.'},
-{q:'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.',s:'Book 12',a:'If you are adjusting your behavior to fit what others expect, you are not living your life. You are performing theirs. The crowd\'s approval is not worth the cost of your authenticity.'},
-{q:'A man should be upright, not be kept upright.',s:'Book 4',a:'If you need others to prop you up, you will fall the moment they step away. Build internal scaffolding. Your own standards, your own discipline, your own approval.'}
-]},
-{id:'stuck',icon:'\u26D3\uFE0F',title:'I Feel Stuck',desc:'When nothing seems to be working.',passages:[
-{q:'The impediment to action advances action. What stands in the way becomes the way.',s:'Book 5',a:'The wall you hit is not the end of the path. It IS the path. What specific skill or lesson is this obstacle forcing you to develop? That is your next move.'},
-{q:'Do not think that what is hard for thee to master is impossible for man; but if a thing is possible and proper to man, deem it attainable by thee.',s:'Book 5',a:'If any human has ever done what you are trying to do, the capacity exists in you. You are not uniquely incapable. You are just early in the process.'},
-{q:'All those things at which thou wishest to arrive by a circuitous road, thou canst have now, if thou dost not refuse them to thyself.',s:'Book 12',a:'You are overcomplicating it. The shortest path to where you want to go is probably simpler than you think. What is the one next action? Just do that.'},
-{q:'Always run to the short way; and the short way is the natural.',s:'Book 10',a:'Stop optimizing. Stop planning the perfect approach. The natural path, the obvious next step, is usually the right one. Move.'}
-]},
-{id:'afraid',icon:'\uD83C\uDF11',title:'I Am Afraid',desc:'When fear is holding you back.',passages:[
-{q:'It is not death that a man should fear, but he should fear never beginning to live.',s:'Book 12',a:'The worst outcome is not failure. The worst outcome is reaching the end and realizing you never tried. What are you more afraid of: the risk, or the regret?'},
-{q:'Nothing happens to any man which he is not formed by nature to bear.',s:'Book 4',a:'Whatever you are afraid of, you were built to handle it. You have survived every bad day so far. Your track record of getting through hard things is 100%.'},
-{q:'Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.',s:'Book 2',a:'You could die today. That is not scary; it is clarifying. If your time is finite, is fear really how you want to spend it?'},
-{q:'Think of yourself as dead. You have lived your life. Now take what\'s left and live it properly.',s:'Book 7',a:'Dead people have no fear. If you treat every remaining day as bonus time, fear loses its leverage. You already got more than you were owed. Now play free.'}
-]},
-{id:'unmotivated',icon:'\uD83D\uDCA4',title:'I Lost Motivation',desc:'When you do not feel like doing anything.',passages:[
-{q:'Dost thou not see the little plants, the little birds, the ants, the spiders, the bees working together to put in order their several parts of the universe? And art thou unwilling to do the work of a human being?',s:'Book 5',a:'Ants do not need motivation. Birds do not need inspiration. They just do their work because it is their nature. Your nature is to create and contribute. Stop waiting to feel like it.'},
-{q:'When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.',s:'Book 7',a:'You are alive. That is not a given; billions are not. The motivation you are looking for is gratitude for the opportunity. Reframe: you GET to work, not you HAVE to.'},
-{q:'Do not act as if thou wert going to live ten thousand years. While thou livest, while it is in thy power, be good.',s:'Book 2',a:'Motivation is a luxury. You do not have time to wait for it. Start the work, and let the momentum create the motivation. Action first, feeling second.'},
-{q:'The soul becomes dyed with the colour of its thoughts.',s:'Book 5',a:'If you spend the day thinking "I do not feel like it," that becomes your identity. Choose a different thought. "I am doing this anyway" changes the dye.'}
-]}
+{id:'angry',icon:'\uD83D\uDD25',title:'I Am Angry',desc:'When rage is clouding your judgment.',passages:[{q:'How much more grievous are the consequences of anger than the causes of it.',s:'Book 6',a:'Your anger will cost more than whatever triggered it. Before you act, ask: "What will this anger cost me in 10 minutes? 10 days? 10 years?"'},{q:'The best revenge is not to be like your enemy.',s:'Book 6',a:'They acted from their worst self. If you retaliate, you become them. Stay who you are.'},{q:'When you are offended at any man\'s fault, immediately turn to yourself and reflect in what manner you yourself have erred.',s:'Book 9',a:'You have done similar things. Finding your own version of their flaw dissolves the self-righteousness that fuels anger.'},{q:'Begin each day by telling yourself: today I shall be meeting with interference, ingratitude, insolence, disloyalty, ill-will, and selfishness.',s:'Book 2',a:'You should have expected this. The anger comes from surprise. Remove the surprise, remove the anger.'}]},
+{id:'procrastinating',icon:'\u23F3',title:'I Am Procrastinating',desc:'When resistance is winning.',passages:[{q:'In the morning when thou risest unwillingly, let this thought be present: I am rising to the work of a human being.',s:'Book 5',a:'You were not born for comfort. You were born to contribute.'},{q:'Waste no more time arguing about what a good man should be. Be one.',s:'Book 10',a:'Close the planning, open the work. Five minutes of doing beats five hours of thinking about doing.'},{q:'Do not act as if thou wert going to live ten thousand years.',s:'Book 2',a:'You do not have infinite time. Start now, start badly, but start.'},{q:'The impediment to action advances action. What stands in the way becomes the way.',s:'Book 5',a:'The very thing you are avoiding is the thing that will grow you the most. The resistance IS the workout.'}]},
+{id:'anxious',icon:'\uD83C\uDF00',title:'I Am Anxious',desc:'When your mind will not stop spiraling.',passages:[{q:'Today I escaped anxiety. Or no, I discarded it, because it was within me, in my own perceptions, not outside.',s:'Book 8',a:'Anxiety is not chasing you. You are carrying it. Right now: unclench your jaw, drop your shoulders, take one slow breath.'},{q:'If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it.',s:'Book 8',a:'The situation is neutral. Your story about it is what hurts. Can you write a different story?'},{q:'It is in thy power whenever thou shalt choose to retire into thyself.',s:'Book 2',a:'Close your eyes for 30 seconds. The retreat is already built inside you.'},{q:'Of human life the time is a point, and the substance is in a flux.',s:'Book 2',a:'Zoom out. Way out. Your anxious moment is a speck on a speck. This too will be swept downstream.'}]},
+{id:'wronged',icon:'\u2694\uFE0F',title:'Someone Wronged Me',desc:'When you have been treated unfairly.',passages:[{q:'He who does wrong does wrong against himself. He who acts unjustly acts unjustly to himself, because he makes himself bad.',s:'Book 9',a:'They are already paying the price. They have to live inside a mind that chose dishonesty. Revenge is redundant.'},{q:'Choose not to be harmed, and you will not feel harmed.',s:'Book 4',a:'Their action is over. Your suffering is self-imposed from this point on.'},{q:'It is peculiar to man to love even those who do wrong. They are kinsmen, and they do wrong through ignorance.',s:'Book 11',a:'They did not know better. Understanding why someone acted badly makes forgiveness rational, not weak.'},{q:'Never value anything as profitable which shall compel thee to hate any man.',s:'Book 3',a:'If holding this grudge costs you peace, it is too expensive.'}]},
+{id:'approval',icon:'\uD83C\uDFAD',title:'I Am Chasing Approval',desc:'When you need others to validate you.',passages:[{q:'Everything which is in any way beautiful is beautiful in itself, and terminates in itself, not having praise as part of itself.',s:'Book 4',a:'Good work does not need applause. Do the work. Let it speak.'},{q:'How much trouble he avoids who does not look to see what his neighbour says or does or thinks.',s:'Book 4',a:'The less you care what they think, the more impressive you become.'},{q:'The object of life is not to be on the side of the majority, but to escape finding oneself in the ranks of the insane.',s:'Book 12',a:'If you are adjusting your behavior to fit what others expect, you are performing their life, not yours.'},{q:'A man should be upright, not be kept upright.',s:'Book 4',a:'Build internal scaffolding. Your own standards, your own discipline, your own approval.'}]},
+{id:'stuck',icon:'\u26D3\uFE0F',title:'I Feel Stuck',desc:'When nothing seems to be working.',passages:[{q:'The impediment to action advances action. What stands in the way becomes the way.',s:'Book 5',a:'The wall is not the end of the path. It IS the path.'},{q:'Do not think that what is hard for thee to master is impossible for man; but if a thing is possible and proper to man, deem it attainable by thee.',s:'Book 5',a:'If any human has ever done it, the capacity exists in you.'},{q:'All those things at which thou wishest to arrive by a circuitous road, thou canst have now, if thou dost not refuse them to thyself.',s:'Book 12',a:'You are overcomplicating it. What is the one next action? Just do that.'},{q:'Always run to the short way; and the short way is the natural.',s:'Book 10',a:'Stop optimizing. The obvious next step is usually the right one. Move.'}]},
+{id:'afraid',icon:'\uD83C\uDF11',title:'I Am Afraid',desc:'When fear is holding you back.',passages:[{q:'It is not death that a man should fear, but he should fear never beginning to live.',s:'Book 12',a:'What are you more afraid of: the risk, or the regret?'},{q:'Nothing happens to any man which he is not formed by nature to bear.',s:'Book 4',a:'Your track record of getting through hard things is 100%.'},{q:'Since it is possible that thou mayest depart from life this very moment, regulate every act and thought accordingly.',s:'Book 2',a:'If your time is finite, is fear really how you want to spend it?'},{q:'Think of yourself as dead. You have lived your life. Now take what\'s left and live it properly.',s:'Book 7',a:'Dead people have no fear. You already got more than you were owed. Now play free.'}]},
+{id:'unmotivated',icon:'\uD83D\uDCA4',title:'I Lost Motivation',desc:'When you do not feel like doing anything.',passages:[{q:'Dost thou not see the little plants, the little birds, the ants, the spiders, the bees working together to put in order their several parts of the universe?',s:'Book 5',a:'Ants do not need motivation. Your nature is to create and contribute. Stop waiting to feel like it.'},{q:'When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love.',s:'Book 7',a:'Reframe: you GET to work, not you HAVE to.'},{q:'Do not act as if thou wert going to live ten thousand years. While thou livest, while it is in thy power, be good.',s:'Book 2',a:'Motivation is a luxury. Start the work, and let the momentum create the motivation.'},{q:'The soul becomes dyed with the colour of its thoughts.',s:'Book 5',a:'Choose a different thought. "I am doing this anyway" changes the dye.'}]}
 ];
-
-// STATE
 var completed=[];try{completed=JSON.parse(localStorage.getItem('ma-done')||'[]')}catch(e){completed=[]}
 var reflections={};try{reflections=JSON.parse(localStorage.getItem('ma-ref')||'{}')}catch(e){reflections={}}
 var currentDay=((Math.floor(Date.now()/86400000))%30)+1;
-
 function saveDone(){try{localStorage.setItem('ma-done',JSON.stringify(completed))}catch(e){}}
 function saveRef(){try{localStorage.setItem('ma-ref',JSON.stringify(reflections))}catch(e){}}
 function esc(s){var d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML}
-
-// TABS
 var tabs=document.querySelectorAll('.tab');
 var secs=document.querySelectorAll('.sec');
-for(var ti=0;ti<tabs.length;ti++){
-  tabs[ti].addEventListener('click',function(){
-    for(var i=0;i<tabs.length;i++){tabs[i].classList.remove('on');secs[i].classList.remove('active')}
-    this.classList.add('on');
-    document.getElementById('sec-'+this.getAttribute('data-tab')).classList.add('active');
-    if(this.getAttribute('data-tab')==='toolkit'){document.getElementById('tkGrid').style.display='';document.getElementById('tkDetail').classList.remove('active')}
-  });
-}
-
-// TODAY
+for(var ti=0;ti<tabs.length;ti++){tabs[ti].addEventListener('click',function(){for(var i=0;i<tabs.length;i++){tabs[i].classList.remove('on');secs[i].classList.remove('active')}this.classList.add('on');document.getElementById('sec-'+this.getAttribute('data-tab')).classList.add('active');if(this.getAttribute('data-tab')==='toolkit'){document.getElementById('tkGrid').style.display='';document.getElementById('tkDetail').classList.remove('active')}});}
 function showDay(d){
   var r=DAILY[d-1];
   document.getElementById('todayTitle').textContent='Day '+d+' of 30';
   document.getElementById('todaySub').textContent=d===currentDay?'Today\'s morning reading':'Reading for Day '+d;
   var isDone=completed.indexOf(d)!==-1;
   var ref=reflections[d]||'';
-  var h='<div class="reading-card">';
-  h+='<div class="reading-label">Today\'s Passage</div>';
-  h+='<p class="reading-quote">\u201C'+esc(r.quote)+'\u201D</p>';
-  h+='<div class="reading-src">'+r.src+'</div>';
-  h+='<div class="reading-section"><h4>What This Means</h4><p>'+esc(r.explain)+'</p></div>';
-  h+='</div>';
+  var h='<div class="reading-card"><div class="reading-label">Today\'s Passage</div><p class="reading-quote">\u201C'+esc(r.quote)+'\u201D</p><div class="reading-src">'+r.src+'</div><div class="reading-section"><h4>What This Means</h4><p>'+esc(r.explain)+'</p></div></div>';
   h+='<div class="action-card"><h4>\u26A1 Apply This Today</h4><p>'+esc(r.apply)+'</p></div>';
   h+='<div class="reflection-card"><h4>\uD83D\uDCDD Evening Reflection</h4><textarea id="refInput" placeholder="'+esc(r.reflect)+'">'+esc(ref)+'</textarea></div>';
   h+='<button class="done-btn'+(isDone?' completed':'')+'" id="doneBtn">'+(isDone?'\u2713 Day '+d+' Complete':'Mark Day '+d+' Complete')+'</button>';
@@ -319,87 +211,39 @@ function showDay(d){
   if(d>1)h+='<button class="nav-btn" data-go="'+(d-1)+'">\u2190 Day '+(d-1)+'</button>';
   if(d<30)h+='<button class="nav-btn" data-go="'+(d+1)+'">Day '+(d+1)+' \u2192</button>';
   h+='</div>';
-  var ct=document.getElementById('todayContent');
-  ct.innerHTML=h;
-
-  document.getElementById('doneBtn').addEventListener('click',function(){
-    if(completed.indexOf(d)===-1){completed.push(d);saveDone()}
-    this.classList.add('completed');this.textContent='\u2713 Day '+d+' Complete';
-    buildCal();
-  });
+  var ct=document.getElementById('todayContent');ct.innerHTML=h;
+  document.getElementById('doneBtn').addEventListener('click',function(){if(completed.indexOf(d)===-1){completed.push(d);saveDone()}this.classList.add('completed');this.textContent='\u2713 Day '+d+' Complete';buildCal();});
   document.getElementById('refInput').addEventListener('input',function(){reflections[d]=this.value;saveRef()});
-  var navs=ct.querySelectorAll('.nav-btn');
-  for(var ni=0;ni<navs.length;ni++){navs[ni].addEventListener('click',function(){showDay(parseInt(this.getAttribute('data-go')));window.scrollTo({top:0,behavior:'smooth'})})}
+  var navs=ct.querySelectorAll('.nav-btn');for(var ni=0;ni<navs.length;ni++){navs[ni].addEventListener('click',function(){showDay(parseInt(this.getAttribute('data-go')));window.scrollTo({top:0,behavior:'smooth'})})}
 }
 showDay(currentDay);
-
-// CALENDAR
 function buildCal(){
-  var g=document.getElementById('calGrid');var h='';
-  var doneCount=completed.length;
-  for(var i=1;i<=30;i++){
-    var isDone=completed.indexOf(i)!==-1;
-    var isToday=i===currentDay;
-    var cls='cal-card'+(isDone?' done-card':'')+(isToday?' today-card':'');
-    h+='<div class="'+cls+'" data-day="'+i+'">';
-    h+='<div class="cal-num">'+i+'</div>';
-    h+='<div class="cal-status">'+(isDone?'\u2713 Done':(isToday?'Today':''))+'</div>';
-    h+='</div>';
-  }
+  var g=document.getElementById('calGrid');var h='';var doneCount=completed.length;
+  for(var i=1;i<=30;i++){var isDone=completed.indexOf(i)!==-1;var isToday=i===currentDay;var cls='cal-card'+(isDone?' done-card':'')+(isToday?' today-card':'');h+='<div class="'+cls+'" data-day="'+i+'"><div class="cal-num">'+i+'</div><div class="cal-status">'+(isDone?'\u2713 Done':(isToday?'Today':''))+'</div></div>';}
   g.innerHTML=h;
-  var cards=g.querySelectorAll('.cal-card');
-  for(var ci=0;ci<cards.length;ci++){cards[ci].addEventListener('click',function(){
-    var d=parseInt(this.getAttribute('data-day'));
-    showDay(d);
-    for(var t=0;t<tabs.length;t++){tabs[t].classList.remove('on');secs[t].classList.remove('active')}
-    tabs[0].classList.add('on');secs[0].classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  })}
-  document.getElementById('progText').textContent=doneCount+' of 30 complete';
-  document.getElementById('progPct').textContent=Math.round(doneCount/30*100)+'%';
-  document.getElementById('progFill').style.width=Math.round(doneCount/30*100)+'%';
+  var cards=g.querySelectorAll('.cal-card');for(var ci=0;ci<cards.length;ci++){cards[ci].addEventListener('click',function(){var d=parseInt(this.getAttribute('data-day'));showDay(d);for(var t=0;t<tabs.length;t++){tabs[t].classList.remove('on');secs[t].classList.remove('active')}tabs[0].classList.add('on');secs[0].classList.add('active');window.scrollTo({top:0,behavior:'smooth'});})}
+  document.getElementById('progText').textContent=doneCount+' of 30 complete';document.getElementById('progPct').textContent=Math.round(doneCount/30*100)+'%';document.getElementById('progFill').style.width=Math.round(doneCount/30*100)+'%';
 }
 buildCal();
-
-// TOOLKIT
 function buildToolkit(){
   var g=document.getElementById('tkGrid');var h='';
-  for(var i=0;i<TOOLKIT.length;i++){
-    var t=TOOLKIT[i];
-    h+='<div class="toolkit-card" data-tk="'+t.id+'">';
-    h+='<div class="toolkit-icon">'+t.icon+'</div>';
-    h+='<div class="toolkit-title">'+t.title+'</div>';
-    h+='<div class="toolkit-desc">'+t.desc+'</div>';
-    h+='</div>';
-  }
+  for(var i=0;i<TOOLKIT.length;i++){var t=TOOLKIT[i];h+='<div class="toolkit-card" data-tk="'+t.id+'"><div class="toolkit-icon">'+t.icon+'</div><div class="toolkit-title">'+t.title+'</div><div class="toolkit-desc">'+t.desc+'</div></div>';}
   g.innerHTML=h;
-  var cards=g.querySelectorAll('.toolkit-card');
-  for(var ci=0;ci<cards.length;ci++){cards[ci].addEventListener('click',function(){showToolkit(this.getAttribute('data-tk'))})}
+  var cards=g.querySelectorAll('.toolkit-card');for(var ci=0;ci<cards.length;ci++){cards[ci].addEventListener('click',function(){showToolkit(this.getAttribute('data-tk'))})}
 }
 function showToolkit(id){
   var t;for(var i=0;i<TOOLKIT.length;i++){if(TOOLKIT[i].id===id){t=TOOLKIT[i];break}}
   if(!t)return;
   document.getElementById('tkGrid').style.display='none';
   var det=document.getElementById('tkDetail');
-  var h='<button class="toolkit-back">\u2190 Back to toolkit</button>';
-  h+='<h2>'+t.icon+' '+t.title+'</h2>';
-  h+='<p class="tk-desc">'+t.desc+' Here is what Marcus would tell you.</p>';
-  for(var j=0;j<t.passages.length;j++){
-    var p=t.passages[j];
-    h+='<div class="tk-passage">';
-    h+='<p class="tkq">\u201C'+esc(p.q)+'\u201D</p>';
-    h+='<div class="tks">'+p.s+'</div>';
-    h+='<p class="tka">'+esc(p.a)+'</p>';
-    h+='</div>';
-  }
-  det.innerHTML=h;
-  det.classList.add('active');
-  det.querySelector('.toolkit-back').addEventListener('click',function(){
-    det.classList.remove('active');document.getElementById('tkGrid').style.display='';
-  });
+  var h='<button class="toolkit-back">\u2190 Back to toolkit</button><h2>'+t.icon+' '+t.title+'</h2><p class="tk-desc">'+t.desc+' Here is what Marcus would tell you.</p>';
+  for(var j=0;j<t.passages.length;j++){var p=t.passages[j];h+='<div class="tk-passage"><p class="tkq">\u201C'+esc(p.q)+'\u201D</p><div class="tks">'+p.s+'</div><p class="tka">'+esc(p.a)+'</p></div>';}
+  det.innerHTML=h;det.classList.add('active');
+  det.querySelector('.toolkit-back').addEventListener('click',function(){det.classList.remove('active');document.getElementById('tkGrid').style.display='';});
   window.scrollTo({top:0,behavior:'smooth'});
 }
 buildToolkit();
 </script>
+<script src="toolkit-extra.js"></script>
 </body>
 </html>
