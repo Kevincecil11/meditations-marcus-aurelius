@@ -1,33 +1,31 @@
-// Theme
-var theme=document.documentElement.getAttribute('data-theme')||'light';
-var toggleBtn=document.getElementById('themeToggle');
-function setThemeIcon(){toggleBtn.textContent=theme==='light'?'\u263E':'\u2600'}
-setThemeIcon();
-toggleBtn.addEventListener('click',function(){
-  theme=theme==='light'?'dark':'light';
-  document.documentElement.setAttribute('data-theme',theme);
-  localStorage.setItem('ma-theme',theme);
-  setThemeIcon();
-});
-
+// Meditations reader (themes + symbols live in theme.js)
 var saved=[];try{saved=JSON.parse(localStorage.getItem('ma-sv')||'[]')}catch(e){saved=[]}
 var allOpen=false;
 var mode='full';
+var SYM=window.MA||{symForBook:function(){return null},symTitle:function(){return ''}};
+
+function localDay(){var n=new Date();return Math.floor((n.getTime()-n.getTimezoneOffset()*60000)/86400000)}
+function escH(s){var d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML}
+function saveSt(){try{localStorage.setItem('ma-sv',JSON.stringify(saved))}catch(e){}}
+function updCount(){document.getElementById('scount').textContent=saved.length}
 
 function allHighlighted(){
   var a=[];
   for(var i=0;i<BOOKS.length;i++){
     for(var j=0;j<BOOKS[i].passages.length;j++){
       var p=BOOKS[i].passages[j];
-      if(p.key){a.push({id:p.id,text:p.text,book:'Book '+BOOKS[i].num,ex:p.ex,bookTitle:BOOKS[i].title})}
+      if(p.key&&!p.note){a.push({id:p.id,text:p.text,num:BOOKS[i].num,book:'Book '+BOOKS[i].num+(p.ref?' \u00B7 '+p.ref:''),ex:p.ex,sym:p.sym||SYM.symForBook(BOOKS[i].num)})}
     }
   }
   return a;
 }
 
-function escH(s){var d=document.createElement('div');d.appendChild(document.createTextNode(s));return d.innerHTML}
-function saveSt(){try{localStorage.setItem('ma-sv',JSON.stringify(saved))}catch(e){}}
-function updCount(){document.getElementById('scount').textContent=saved.length}
+function buildStats(){
+  var n=0,k=0;
+  for(var i=0;i<BOOKS.length;i++){n+=BOOKS[i].passages.length;for(var j=0;j<BOOKS[i].passages.length;j++)if(BOOKS[i].passages[j].key)k++}
+  var s=(window.MA&&MA.SYMBOLS)?MA.SYMBOLS.length:0;
+  document.getElementById('stats').innerHTML='<span>12 Books</span><span>'+n+' Passages</span><span>'+k+' Explained</span>'+(s?'<span>'+s+' Symbols</span>':'');
+}
 
 function buildNav(){
   var c=document.getElementById('pillNav');var h='';
@@ -38,42 +36,54 @@ function buildNav(){
 
 function buildDaily(){
   var all=allHighlighted();if(!all.length)return;
-  var idx=Math.floor(Date.now()/86400000)%all.length;
+  var idx=localDay()%all.length;
   var el=document.getElementById('daily');
   function show(q){
-    el.innerHTML='<div class="daily-tag">Today\'s Reflection</div><p class="dq">\u201C'+escH(q.text)+'\u201D</p><p class="dr">'+q.book+'</p><button id="newD">\u21BB Another</button>';
+    var h='<div class="daily-tag">Today\'s Reflection</div><p class="dq">\u201C'+escH(q.text)+'\u201D</p><p class="dr">'+q.book+'</p>';
+    h+='<div class="dx" id="dx"><strong>In plain English:</strong> '+q.ex+'</div>';
+    h+='<div class="daily-acts"><button id="dxBtn">What this means</button>';
+    if(q.sym)h+='<button data-sym="'+q.sym+'">\u25C8 Symbol</button>';
+    h+='<button id="goD">Read in context</button><button id="newD">\u21BB Another</button></div>';
+    el.innerHTML=h;
     document.getElementById('newD').addEventListener('click',function(){show(all[Math.floor(Math.random()*all.length)])});
+    document.getElementById('dxBtn').addEventListener('click',function(){var d=document.getElementById('dx');d.classList.toggle('open');this.textContent=d.classList.contains('open')?'Hide meaning':'What this means'});
+    document.getElementById('goD').addEventListener('click',function(){jumpTo(q.id)});
   }
   show(all[idx]);
+}
+
+function jumpTo(id){
+  var el=document.querySelector('.passage[data-id="'+id+'"]');if(!el)return;
+  if(el.classList.contains('hide')){var s=document.getElementById('search');s.value='';doSearch('');mode='full';setModeBtns();applyMode()}
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  var ex=el.querySelector('.expl'),eb=el.querySelector('.exp-btn');if(ex&&!ex.classList.contains('open')){ex.classList.add('open');eb.classList.add('open')}
 }
 
 function buildContent(){
   var c=document.getElementById('content');var h='';
   for(var i=0;i<BOOKS.length;i++){
-    var bk=BOOKS[i];
+    var bk=BOOKS[i];var bs=SYM.symForBook(bk.num);
     h+='<section class="book-sec" id="bk-'+bk.num+'">';
-    h+='<div class="bk-num">'+bk.num+'</div>';
-    h+='<h2 class="bk-title">'+bk.title+'</h2>';
+    h+='<div class="bk-num disp">'+bk.num+'</div>';
+    h+='<h2 class="bk-title disp">'+bk.title+'</h2>';
     h+='<div class="bk-summary">'+bk.summary+'</div>';
-    if(bk.themes)h+='<div class="bk-themes">Themes: '+bk.themes+'</div>';
+    h+='<div class="bk-row">'+(bk.themes?'<div class="bk-themes">Themes: '+bk.themes+'</div>':'<span></span>');
+    if(bs)h+='<button class="sym-btn" data-sym="'+bs+'"><span class="gl">\u25C8</span> Symbol: '+escH(SYM.symTitle(bs))+'</button>';
+    h+='</div>';
     for(var j=0;j<bk.passages.length;j++){
       var p=bk.passages[j];
       var isS=saved.indexOf(p.id)!==-1;
       var cls=p.key?'passage highlighted':'passage';
       h+='<div class="'+cls+'" data-id="'+p.id+'" data-key="'+(p.key?'1':'0')+'">';
-      h+='<div class="pnum">&sect; '+p.id.replace('b'+bk.num+'p','')+'</div>';
+      h+='<div class="pnum">&sect; '+p.id.replace('b'+bk.num+'p','')+(p.ref?'<span class="ref">Med. '+p.ref+'</span>':'')+'</div>';
       h+='<p class="ptext">'+escH(p.text)+'</p>';
-      if(p.key){
-        h+='<div class="pmeta"><span></span><div class="pacts">';
-        h+='<button class="exp-btn" data-q="'+p.id+'">What this means <span class="arr">\u25BC</span></button>';
-        h+='<button class="hrt'+(isS?' on':'')+'" data-q="'+p.id+'">'+(isS?'\u2665':'\u2661')+'</button>';
-        h+='</div></div>';
-        h+='<div class="expl" data-q="'+p.id+'"><div class="expl-in"><div class="expl-tag">In Plain English</div><p class="expl-txt">'+p.ex+'</p></div></div>';
-      } else {
-        h+='<div class="pmeta"><span></span><div class="pacts">';
-        h+='<button class="hrt'+(isS?' on':'')+'" data-q="'+p.id+'">'+(isS?'\u2665':'\u2661')+'</button>';
-        h+='</div></div>';
-      }
+      if(p.note)h+='<div class="pnote">\u24D8 '+p.note+'</div>';
+      h+='<div class="pmeta"><div class="pacts">';
+      if(p.key)h+='<button class="exp-btn" data-q="'+p.id+'">What this means <span class="arr">\u25BC</span></button>';
+      if(p.sym)h+='<button class="sym-mini" data-sym="'+p.sym+'" title="View symbol: '+escH(SYM.symTitle(p.sym))+'">\u25C8</button>';
+      h+='<button class="hrt'+(isS?' on':'')+'" data-q="'+p.id+'" aria-label="Save">'+(isS?'\u2665':'\u2661')+'</button>';
+      h+='</div></div>';
+      if(p.key)h+='<div class="expl" data-q="'+p.id+'"><div class="expl-in"><div class="expl-tag">In Plain English</div><p class="expl-txt">'+p.ex+'</p></div></div>';
       h+='</div>';
     }
     h+='</section>';
@@ -86,6 +96,8 @@ function updatePassageCount(){
   var vis=document.querySelectorAll('.passage:not(.hide)');
   document.getElementById('qcount').textContent=vis.length+' passages';
 }
+
+function setModeBtns(){var b=document.querySelectorAll('.mode-btn');for(var k=0;k<b.length;k++)b[k].classList.toggle('on',b[k].getAttribute('data-mode')===mode)}
 
 function bind(){
   var content=document.getElementById('content');
@@ -121,10 +133,9 @@ function bind(){
   var modeBtns=document.querySelectorAll('.mode-btn');
   for(var m=0;m<modeBtns.length;m++){
     modeBtns[m].addEventListener('click',function(){
-      for(var k=0;k<modeBtns.length;k++)modeBtns[k].classList.remove('on');
-      this.classList.add('on');
-      mode=this.getAttribute('data-mode');
-      applyMode();
+      mode=this.getAttribute('data-mode');setModeBtns();
+      var s=document.getElementById('search');
+      if(s.value.trim())doSearch(s.value);else applyMode();
     });
   }
 
@@ -137,18 +148,15 @@ function bind(){
   document.getElementById('openSaved').addEventListener('click',openPanel);
   document.getElementById('pnlX').addEventListener('click',closePanel);
   document.getElementById('overlay').addEventListener('click',closePanel);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel()});
   document.getElementById('btt').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 }
 
 function applyMode(){
   var passages=document.querySelectorAll('.passage');
-  if(mode==='highlights'){
-    for(var i=0;i<passages.length;i++){
-      if(passages[i].getAttribute('data-key')==='0')passages[i].classList.add('hide');
-      else passages[i].classList.remove('hide');
-    }
-  } else {
-    for(var j=0;j<passages.length;j++)passages[j].classList.remove('hide');
+  for(var i=0;i<passages.length;i++){
+    var hide=mode==='highlights'&&passages[i].getAttribute('data-key')==='0';
+    passages[i].classList.toggle('hide',hide);
   }
   var secs=document.querySelectorAll('.book-sec');
   for(var s=0;s<secs.length;s++){
@@ -162,8 +170,8 @@ function doSearch(raw){
   var q=raw.toLowerCase().trim();
   var passages=document.querySelectorAll('.passage');
   var secs=document.querySelectorAll('.book-sec');
+  for(var c=0;c<passages.length;c++){var p0=passages[c].querySelector('.ptext');if(p0&&p0.querySelector('mark'))p0.innerHTML=escH(p0.textContent)}
   if(!q){
-    for(var i=0;i<passages.length;i++){passages[i].classList.remove('hide');var pt=passages[i].querySelector('.ptext');if(pt)pt.innerHTML=escH(pt.textContent)}
     applyMode();
     document.getElementById('noRes').classList.remove('show');
     return;
@@ -173,7 +181,11 @@ function doSearch(raw){
   for(var i2=0;i2<passages.length;i2++){
     var pt2=passages[i2].querySelector('.ptext');
     var txt=pt2?pt2.textContent:'';
-    if(txt.toLowerCase().indexOf(q)!==-1){
+    var exEl=passages[i2].querySelector('.expl-txt');
+    var exTxt=exEl?exEl.textContent.toLowerCase():'';
+    var modeOk=!(mode==='highlights'&&passages[i2].getAttribute('data-key')==='0');
+    var hit=txt.toLowerCase().indexOf(q)!==-1||exTxt.indexOf(q)!==-1;
+    if(hit&&modeOk){
       passages[i2].classList.remove('hide');
       pt2.innerHTML=escH(txt).replace(re,'<mark>$1</mark>');
       vis++;
@@ -207,10 +219,12 @@ function renderPanel(){
     var el=document.querySelector('.passage[data-id="'+id+'"]');
     if(!el)continue;
     var txt=el.querySelector('.ptext').textContent;
-    var short=txt.length>140?txt.substring(0,140)+'...':txt;
-    h+='<div class="pnl-item"><p class="pq">\u201C'+escH(short)+'\u201D</p><button class="prm" data-id="'+id+'">Remove</button></div>';
+    var short=txt.length>160?txt.substring(0,160)+'...':txt;
+    h+='<div class="pnl-item"><p class="pq" data-go="'+id+'">\u201C'+escH(short)+'\u201D</p><button class="prm" data-id="'+id+'">Remove</button></div>';
   }
   body.innerHTML=h;
+  var gos=body.querySelectorAll('.pq');
+  for(var g=0;g<gos.length;g++){gos[g].addEventListener('click',function(){closePanel();jumpTo(this.getAttribute('data-go'))})}
   var rmBtns=body.querySelectorAll('.prm');
   for(var k=0;k<rmBtns.length;k++){
     rmBtns[k].addEventListener('click',function(){
@@ -228,16 +242,24 @@ function setupScroll(){
   var pills=document.querySelectorAll('.pill');
   var btt=document.getElementById('btt');
   var pbar=document.getElementById('pbar');
-  window.addEventListener('scroll',function(){
+  var ticking=false;
+  function onScroll(){
+    ticking=false;
     var s=window.pageYOffset||document.documentElement.scrollTop;
     var t=document.documentElement.scrollHeight-window.innerHeight;
     if(t>0)pbar.style.width=(s/t*100)+'%';
     btt.classList.toggle('show',s>400);
     var secs=document.querySelectorAll('.book-sec');
+    var off=(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h'),10)||58)+90;
     var cur='';
-    for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=140)cur=secs[i].id.replace('bk-','')}
-    for(var j=0;j<pills.length;j++){pills[j].classList.toggle('on',pills[j].getAttribute('data-b')===cur)}
-  },{passive:true});
+    for(var i=0;i<secs.length;i++){if(secs[i].style.display!=='none'&&secs[i].getBoundingClientRect().top<=off)cur=secs[i].id.replace('bk-','')}
+    for(var j=0;j<pills.length;j++){
+      var on=pills[j].getAttribute('data-b')===cur;
+      if(on&&!pills[j].classList.contains('on')){pills[j].classList.add('on');var nav=pills[j].parentElement.parentElement;nav.scrollTo({left:pills[j].offsetLeft-40,behavior:'smooth'})}
+      else if(!on)pills[j].classList.remove('on');
+    }
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 }
 
-buildNav();buildDaily();buildContent();bind();updCount();setupScroll();
+buildStats();buildNav();buildDaily();buildContent();bind();updCount();setupScroll();
