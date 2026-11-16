@@ -22,7 +22,7 @@ function allHighlighted(){
 
 function buildStats(){
   var n=0,k=0;
-  for(var i=0;i<BOOKS.length;i++){n+=BOOKS[i].passages.length;for(var j=0;j<BOOKS[i].passages.length;j++)if(BOOKS[i].passages[j].key)k++}
+  for(var i=0;i<BOOKS.length;i++){n+=BOOKS[i].passages.length;for(var j=0;j<BOOKS[i].passages.length;j++)if(BOOKS[i].passages[j].ex)k++}
   var s=(window.MA&&MA.SYMBOLS)?MA.SYMBOLS.length:0;
   document.getElementById('stats').innerHTML='<span>12 Books</span><span>'+n+' Passages</span><span>'+k+' Explained</span>'+(s?'<span>'+s+' Symbols</span>':'');
 }
@@ -79,11 +79,11 @@ function buildContent(){
       h+='<p class="ptext">'+escH(p.text)+'</p>';
       if(p.note)h+='<div class="pnote">\u24D8 '+p.note+'</div>';
       h+='<div class="pmeta"><div class="pacts">';
-      if(p.key)h+='<button class="exp-btn" data-q="'+p.id+'">What this means <span class="arr">\u25BC</span></button>';
+      if(p.ex)h+='<button class="exp-btn" data-q="'+p.id+'">What this means <span class="arr">\u25BC</span></button>';
       if(p.sym)h+='<button class="sym-mini" data-sym="'+p.sym+'" title="View symbol: '+escH(SYM.symTitle(p.sym))+'">\u25C8</button>';
       h+='<button class="hrt'+(isS?' on':'')+'" data-q="'+p.id+'" aria-label="Save">'+(isS?'\u2665':'\u2661')+'</button>';
       h+='</div></div>';
-      if(p.key)h+='<div class="expl" data-q="'+p.id+'"><div class="expl-in"><div class="expl-tag">In Plain English</div><p class="expl-txt">'+p.ex+'</p></div></div>';
+      if(p.ex)h+='<div class="expl" data-q="'+p.id+'"><div class="expl-in"><div class="expl-tag">In Plain English</div><p class="expl-txt">'+p.ex+'</p></div></div>';
       h+='</div>';
     }
     h+='</section>';
